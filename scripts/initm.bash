@@ -20,7 +20,6 @@ _SINMTRPEXIT_() { # Run on exit.
 
 _SINMTRPSIGNAL_() { # Run on signal.
 	local RV="$?"
-	_WAKEUNLOCK_
 	printf "\\e[?25h\\e[1;7;38;5;0mBuildAPKs %s WARNING:  Signal %s received!\\e[0m\\n" "initm.bash" "$RV"
  	exit 178 
 }
@@ -44,6 +43,5 @@ export JDR="$RDR/sources/$JIDL"
 cd "$RDR"
 (git pull && git submodule update --init --recursive ./scripts/shlibs) || (echo ; echo "Cannot update: continuing...")
 . "$RDR/scripts/shlibs/mod.bash"
-_WAKEUNLOCK_
 
 #EOF
