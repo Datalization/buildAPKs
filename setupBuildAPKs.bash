@@ -49,9 +49,9 @@ declare COMMANDIF=""
 COMMANDIF="$(command -v au)" ||:
 if [[ "$COMMANDIF" = au ]] 
 then 
-	au aapt apksigner dx ecj findutils git
+	au aapt apksigner dx ecj4.6 findutils git
 else
-	pkg install aapt apksigner dx ecj findutils git
+	pkg install aapt apksigner dx ecj4.6 findutils git
 fi
 cd "$HOME"
 git clone https://github.com/sdrausty/buildAPKs
